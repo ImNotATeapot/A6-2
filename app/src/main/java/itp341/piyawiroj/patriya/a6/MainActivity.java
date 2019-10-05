@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button room3Button;
     private Button room4Button;
     private Button submitButton;
+    private Button cheatButton;
 
     private TextView colorRiddleTextView;
     private TextView sizeRiddleTextView;
@@ -78,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                     submitIntent.putExtra(EXTRA_NUM_COMPLETED_DOORS, numCompletedDoors);
                     startActivityForResult(submitIntent,SUBMIT_INTENT_REQUEST_CODE);
                     break;
+                case R.id.cheatButton:
+                    cheatToast();
+                    break;
                     default:
                         break;
             }
@@ -95,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         room3Button = findViewById(R.id.room3Button);
         room4Button = findViewById(R.id.room4Button);
         submitButton = findViewById(R.id.submitButton);
+        cheatButton = findViewById(R.id.cheatButton);
 
         colorRiddleTextView = findViewById(R.id.colorRiddleTextView);
         sizeRiddleTextView = findViewById(R.id.sizeRiddleTextView);
@@ -108,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
         room3Button.setOnClickListener(listener);
         room4Button.setOnClickListener(listener);
         submitButton.setOnClickListener(listener);
+        cheatButton.setOnClickListener(listener);
+
+
 
         setRiddles();
     }
@@ -183,5 +192,17 @@ public class MainActivity extends AppCompatActivity {
         imageRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
         nameRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
         sizeRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
+    }
+    public void cheatToast() {
+        String[] colorRiddles = getResources().getStringArray(R.array.colorRiddles);
+        String[] imageRiddles = getResources().getStringArray(R.array.imageRiddles);
+        String[] nameRiddles = getResources().getStringArray(R.array.nameRiddles);
+        String[] sizeRiddles = getResources().getStringArray(R.array.sizeRiddles);
+        String[] colorCodeAnswer = getResources().getStringArray(R.array.colorCodeCheat);
+        String[] imgAnswer = getResources().getStringArray(R.array.cheatImgRiddles);
+        Toast toast = Toast.makeText(this, colorRiddles[colorAnswer] + " " + colorCodeAnswer[colorAnswer] + "\n" +
+                        sizeRiddles[sizeAnswer] +  "\n" + nameRiddles[nameAnswer] + "\n" + imgAnswer[imageAnswer]
+                , Toast.LENGTH_LONG);
+        toast.show();
     }
 }

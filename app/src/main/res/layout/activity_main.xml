@@ -103,5 +103,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/solveText" />
+
+        <Button
+            android:id="@+id/cheatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cheatTextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
