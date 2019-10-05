@@ -10,10 +10,20 @@
         <item>I want to be medium</item>
         <item>I want to be small</item>
     </string-array>
+    <string-array name="sizeSpinnerOptions">
+        <item>big</item>
+        <item>medium</item>
+        <item>small</item>
+    </string-array>
     <string-array name="nameRiddles">
         <item>You can call me "AI"</item>
         <item>You can call me "Robot"</item>
         <item>You can call me "Android"</item>
+    </string-array>
+    <string-array name="nameOptions">
+        <item>AI</item>
+        <item>Robot</item>
+        <item>Android</item>
     </string-array>
     <string-array name="imageRiddles">
         <item>I see a bike</item>
@@ -27,4 +37,7 @@
     <string name="room2">ROOM 2</string>
     <string name="room3">ROOM 3</string>
     <string name="room4">ROOM 4</string>
+    <string name="sizeText">Size:</string>
+    <string name="nameText">What is my name?</string>
+    <string name="setChangesText">Set Changes</string>
 </resources>

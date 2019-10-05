@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="@string/instructionText"
             android:textSize="18sp"
-            tools:layout_margin="4dp" />
+            android:layout_margin="4dp" />
 
         <TextView
             android:id="@+id/colorRiddleTextView"
@@ -32,7 +32,7 @@
             android:text="@string/instructionText"
             android:textSize="14sp"
             android:textColor="@color/incorrectRed"
-            tools:layout_margin="4dp"/>
+            android:layout_margin="4dp"/>
 
         <TextView
             android:id="@+id/sizeRiddleTextView"
@@ -42,7 +42,7 @@
             android:text="@string/instructionText"
             android:textSize="14sp"
             android:textColor="@color/incorrectRed"
-            tools:layout_margin="4dp"/>
+            android:layout_margin="4dp"/>
 
         <TextView
             android:id="@+id/nameRiddleTextView"
@@ -52,7 +52,7 @@
             android:text="@string/instructionText"
             android:textSize="14sp"
             android:textColor="@color/incorrectRed"
-            tools:layout_margin="4dp"/>
+            android:layout_margin="4dp"/>
 
         <TextView
             android:id="@+id/imageRiddleTextView"
@@ -62,7 +62,7 @@
             android:text="@string/instructionText"
             android:textSize="14sp"
             android:textColor="@color/incorrectRed"
-            tools:layout_margin="4dp"/>
+            android:layout_margin="4dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
