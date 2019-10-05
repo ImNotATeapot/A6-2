@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">A6</string>
+    <string name="instructionText">Solve the Puzzle</string>
+    <string name="solveText">SOLVE</string>
+    <string name="room1">ROOM 1</string>
+    <string name="room2">ROOM 2</string>
+    <string name="room3">ROOM 3</string>
+    <string name="room4">ROOM 4</string>
+<!--    <string-array name="colorRiddles">-->
+<!--        <item>I'm feeling blue</item>-->
+<!--        <item>I'm feeling red</item>-->
+<!--        <item>I'm feeling green</item>-->
+<!--    </string-array>-->
+<!--    <string-array name="sizeRiddles">-->
+<!--        <item>I want to be big</item>-->
+<!--        <item>I want to be medium</item>-->
+<!--        <item>I want to be small</item>-->
+<!--    </string-array>-->
+<!--    <string-array name="nameRiddles">-->
+<!--        <item>You can call me "AI"</item>-->
+<!--        <item>You can call me "Robot"</item>-->
+<!--        <item>You can call me "Android"</item>-->
+<!--    </string-array>-->
+<!--    <string-array name="imageRiddles">-->
+<!--        <item>I see a bike</item>-->
+<!--        <item>I see a car</item>-->
+<!--        <item>I see a motorcycle</item>-->
+<!--    </string-array>-->
+</resources>
