@@ -27,4 +27,9 @@
     <string name="room2">ROOM 2</string>
     <string name="room3">ROOM 3</string>
     <string name="room4">ROOM 4</string>
+    <string name="R">R: %d</string>
+    <string name="G">G: %d</string>
+    <string name="B">B: %d</string>
+    <string name="Preview">Preview: </string>
+    <string name="setChanges">Set Changes</string>
 </resources>
