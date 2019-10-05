@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_IMAGE_ANSWER = "piyawiroj.patriya.A6-2.extra.image.answer";
     public static final String EXTRA_NAME_ANSWER = "piyawiroj.patriya.A6-2.extra.name.answer";
     public static final String EXTRA_NUM_COMPLETED_DOORS = "piyawiroj.patriya.A6-2.extra.num.completed-doors";
+    public static final String EXTRA_SHOULD_RESET = "piyawiroj.patriya.A6-2.extra.should-reset";
 
     private Button room1Button;
     private Button room2Button;
@@ -111,6 +112,69 @@ public class MainActivity extends AppCompatActivity {
         room4Button.setOnClickListener(listener);
         submitButton.setOnClickListener(listener);
 
+        setRiddles();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        Log.d(TAG, String.format("Activity returned intent %d and result %d", requestCode, resultCode));
+        if (requestCode == SIZE_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == sizeAnswer) {
+                Log.d(TAG, String.format("Room 2 has been completed correctly with " + numCompletedDoors + "completed doors"));
+                if (numCompletedDoors == 1) {
+                    sizeRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    numCompletedDoors++;
+                    isRoom2Completed = true;
+                }
+            }
+        } else if (requestCode == COLOR_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
+            String[] nameRiddles = getResources().getStringArray(R.array.nameOptions);
+            if (intent.getStringExtra(EXTRA_USER_ANSWER).equals(nameRiddles[colorAnswer])) {
+                Log.d(TAG, String.format("Room 1 has been completed correctly with " + numCompletedDoors + "completed doors"));
+                if (numCompletedDoors == 0) {
+                    colorRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    numCompletedDoors++;
+                    isRoom1Completed = true;
+                }
+            }
+        } else if (requestCode == NAME_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
+            String[] nameRiddles = getResources().getStringArray(R.array.nameOptions);
+            if (intent.getStringExtra(EXTRA_USER_ANSWER).equalsIgnoreCase(nameRiddles[nameAnswer])) {
+                Log.d(TAG, String.format("Room 3 has been completed correctly with " + numCompletedDoors + "completed doors"));
+                if (numCompletedDoors == 2) {
+                    nameRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    numCompletedDoors++;
+                    isRoom3Completed = true;
+                }
+            }
+        } else if (requestCode == IMAGE_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == imageAnswer) {
+                Log.d(TAG, String.format("Room 4 has been completed correctly with " + numCompletedDoors + "completed doors"));
+                if (numCompletedDoors == 3) {
+                    imageRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    numCompletedDoors++;
+                    isRoom4Completed = true;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        boolean shouldReset = getIntent().getBooleanExtra(EXTRA_SHOULD_RESET, false);
+        if (shouldReset) {
+            numCompletedDoors = 0;
+            setRiddles();
+        }
+    }
+
+    private Integer getRandInt(){
+        Double rand = Math.random()*3;
+        return rand.intValue();
+    }
+
+    private void setRiddles() {
         //set riddles
         String[] colorRiddles = getResources().getStringArray(R.array.colorRiddles);
         String[] imageRiddles = getResources().getStringArray(R.array.imageRiddles);
@@ -124,34 +188,5 @@ public class MainActivity extends AppCompatActivity {
         imageRiddleTextView.setText(imageRiddles[imageAnswer]);
         nameRiddleTextView.setText(nameRiddles[nameAnswer]);
         sizeRiddleTextView.setText(sizeRiddles[sizeAnswer]);
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        Log.d(TAG, String.format("Activity returned intent %d and result %d", requestCode, resultCode));
-        if (requestCode == SIZE_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
-            if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == sizeAnswer) {
-                sizeRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
-            }
-        } else if (requestCode == COLOR_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
-            if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == colorAnswer) {
-                colorRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
-            }
-        } else if (requestCode == NAME_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
-            String[] nameRiddles = getResources().getStringArray(R.array.nameOptions);
-            if (intent.getStringExtra(EXTRA_USER_ANSWER).equalsIgnoreCase(nameRiddles[nameAnswer])) {
-                nameRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
-            }
-        } else if (requestCode == IMAGE_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
-            if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == imageAnswer) {
-                imageRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen,null));
-            }
-        }
-    }
-
-    private Integer getRandInt(){
-        Double rand = Math.random()*3;
-        return rand.intValue();
     }
 }

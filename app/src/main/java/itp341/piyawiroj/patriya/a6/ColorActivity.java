@@ -2,7 +2,9 @@ package itp341.piyawiroj.patriya.a6;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -17,6 +19,22 @@ public class ColorActivity extends AppCompatActivity {
     TextView redTextcode;
     TextView greenTextcode;
     TextView blueTextcode;
+    Button colorSetChangesButton;
+    private String userAnswer = "";
+
+    private static final String TAG = NameActivity.class.getSimpleName();
+
+    private class SaveChangesListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            userAnswer = seekR + "-" + seekG + "-" + seekB;
+            Log.d(TAG, "User chose " + userAnswer);
+            getIntent().putExtra(MainActivity.EXTRA_USER_ANSWER, userAnswer);
+            setResult(RESULT_OK, getIntent());
+            finish();
+            //It seems redundant to have to return answer, user answer, and num completed doors here despite instructions
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +50,8 @@ public class ColorActivity extends AppCompatActivity {
         redSeekBar.setOnSeekBarChangeListener(seekBarChangeListener);
         greenSeekBar.setOnSeekBarChangeListener(seekBarChangeListener);
         blueSeekBar.setOnSeekBarChangeListener(seekBarChangeListener);
+        colorSetChangesButton = findViewById(R.id.ColorChangesButton);
+        colorSetChangesButton.setOnClickListener(new SaveChangesListener());
         redTextcode.setText(String.format(getResources().getString(R.string.R), 0));
         greenTextcode.setText(String.format(getResources().getString(R.string.G), 0));
         blueTextcode.setText(String.format(getResources().getString(R.string.B), 0));

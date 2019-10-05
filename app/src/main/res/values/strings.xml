@@ -1,9 +1,14 @@
 
 <resources>
     <string-array name="colorRiddles">
-        <item>I\'m feeling blue</item>
         <item>I\'m feeling red</item>
         <item>I\'m feeling green</item>
+        <item>I\'m feeling blue</item>
+    </string-array>
+    <string-array name="colorOptions">
+        <item>255-0-0</item>
+        <item>0-255-0</item>
+        <item>0-0-255</item>
     </string-array>
     <string-array name="sizeRiddles">
         <item>I want to be big</item>
@@ -45,4 +50,6 @@
     <string name="B">B: %d</string>
     <string name="Preview">Preview: </string>
     <string name="setChanges">Set Changes</string>
+    <string name="winTextView">You WIN</string>
+    <string name="lostTextView">Try Again.</string>
 </resources>
