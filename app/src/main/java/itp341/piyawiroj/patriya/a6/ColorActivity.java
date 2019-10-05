@@ -37,6 +37,26 @@ public class ColorActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        updateBackground();
+    }
+
+    private void updateBackground()
+    {
+        seekR = redSeekBar.getProgress();
+        seekG = greenSeekBar.getProgress();
+        seekB = blueSeekBar.getProgress();
+        Double red = Math.ceil(seekR*2.55);
+        Double green = Math.ceil(seekG*2.55);
+        Double blue = Math.ceil(seekB*2.55);
+        view.setBackgroundColor(Color.argb(255, red.intValue(), green.intValue(), blue.intValue()));
+        redTextcode.setText(String.format(getResources().getString(R.string.R), (red.intValue())));
+        greenTextcode.setText(String.format(getResources().getString(R.string.G), (green.intValue())));
+        blueTextcode.setText(String.format(getResources().getString(R.string.B), (blue.intValue())));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color);
@@ -55,11 +75,11 @@ public class ColorActivity extends AppCompatActivity {
         redTextcode.setText(String.format(getResources().getString(R.string.R), 0));
         greenTextcode.setText(String.format(getResources().getString(R.string.G), 0));
         blueTextcode.setText(String.format(getResources().getString(R.string.B), 0));
+        updateBackground();
 
     }
 
     private SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
-
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -73,19 +93,7 @@ public class ColorActivity extends AppCompatActivity {
         public void onStopTrackingTouch(SeekBar seekBar) {
 
         }
-        private void updateBackground()
-        {
-            seekR = redSeekBar.getProgress();
-            seekG = greenSeekBar.getProgress();
-            seekB = blueSeekBar.getProgress();
-            Double red = Math.ceil(seekR*2.55);
-            Double green = Math.ceil(seekG*2.55);
-            Double blue = Math.ceil(seekB*2.55);
-            view.setBackgroundColor(Color.argb(255, red.intValue(), green.intValue(), blue.intValue()));
-            redTextcode.setText(String.format(getResources().getString(R.string.R), (red.intValue())));
-            greenTextcode.setText(String.format(getResources().getString(R.string.G), (green.intValue())));
-            blueTextcode.setText(String.format(getResources().getString(R.string.B), (blue.intValue())));
-        }
+
     };
 }
 

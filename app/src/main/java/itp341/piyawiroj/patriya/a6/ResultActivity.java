@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultActivity extends AppCompatActivity {
 
+    public static final String TAG = ResultActivity.class.getSimpleName();
     TextView resultsTextView;
     boolean win = false;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
         int numCompleted = getIntent().getIntExtra(MainActivity.EXTRA_NUM_COMPLETED_DOORS, -1);

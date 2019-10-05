@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/bikeCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,7 +38,7 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/motorcycleCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -61,7 +61,7 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/carCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -77,7 +77,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/setImageChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

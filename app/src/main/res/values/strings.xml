@@ -6,9 +6,9 @@
         <item>I\'m feeling blue</item>
     </string-array>
     <string-array name="colorOptions">
-        <item>255-0-0</item>
-        <item>0-255-0</item>
-        <item>0-0-255</item>
+        <item>100-0-0</item>
+        <item>0-100-0</item>
+        <item>0-0-100</item>
     </string-array>
     <string-array name="sizeRiddles">
         <item>I want to be big</item>
@@ -32,8 +32,13 @@
     </string-array>
     <string-array name="imageRiddles">
         <item>I see a bike</item>
-        <item>I see a car</item>
         <item>I see a motorcycle</item>
+        <item>I see a car</item>
+    </string-array>
+    <string-array name="imageOptions">
+        <item>bike</item>
+        <item>motorcycle</item>
+        <item>car</item>
     </string-array>
     <string name="app_name">A6</string>
     <string name="instructionText">Solve the Puzzle</string>
