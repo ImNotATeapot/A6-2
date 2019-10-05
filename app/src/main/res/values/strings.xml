@@ -10,6 +10,11 @@
         <item>0-100-0</item>
         <item>0-0-100</item>
     </string-array>
+    <string-array name="colorCodeCheat">
+        <item>(255-0-0)</item>
+        <item>(0-255-0)</item>
+        <item>(0-0-255)</item>
+    </string-array>
     <string-array name="sizeRiddles">
         <item>I want to be big</item>
         <item>I want to be medium</item>
@@ -31,9 +36,14 @@
         <item>Android</item>
     </string-array>
     <string-array name="imageRiddles">
-        <item>I see a bike</item>
-        <item>I see a motorcycle</item>
-        <item>I see a car</item>
+    <item>I see a bike</item>
+    <item>I see a motorcycle</item>
+    <item>I see a car</item>
+    </string-array>
+    <string-array name="cheatImgRiddles">
+        <item>Please select a bike</item>
+        <item>Please select a motorcycle</item>
+        <item>Please select a car</item>
     </string-array>
     <string-array name="imageOptions">
         <item>bike</item>
@@ -48,7 +58,7 @@
     <string name="room3">ROOM 3</string>
     <string name="room4">ROOM 4</string>
     <string name="sizeText">Size:</string>
-    <string name="nameText">What is my name?</string>
+    <string name="nameText">What is my name?: </string>
     <string name="setChangesText">Set Changes</string>
     <string name="R">R: %d</string>
     <string name="G">G: %d</string>
@@ -57,4 +67,5 @@
     <string name="setChanges">Set Changes</string>
     <string name="winTextView">You WIN</string>
     <string name="lostTextView">Try Again.</string>
+    <string name="cheatTextView">Cheat</string>
 </resources>
