@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getIntExtra(EXTRA_USER_ANSWER, -1) == sizeAnswer) {
                 Log.d(TAG, String.format("Room 2 has been completed correctly with " + numCompletedDoors + "completed doors"));
                 if (numCompletedDoors == 1) {
-                    sizeRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    sizeRiddleTextView.setTextColor(getColor(R.color.correctGreen));
                     numCompletedDoors++;
                 }
             }
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getStringExtra(EXTRA_USER_ANSWER).equals(color[colorAnswer])) {
                 Log.d(TAG, String.format("Room 1 has been completed correctly with " + numCompletedDoors + "completed doors"));
                 if (numCompletedDoors == 0) {
-                    colorRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    colorRiddleTextView.setTextColor(getColor(R.color.correctGreen));
                     numCompletedDoors++;
                 }
             }
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getStringExtra(EXTRA_USER_ANSWER).equalsIgnoreCase(nameRiddles[nameAnswer])) {
                 Log.d(TAG, String.format("Room 3 has been completed correctly with " + numCompletedDoors + "completed doors"));
                 if (numCompletedDoors == 2) {
-                    nameRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    nameRiddleTextView.setTextColor(getColor(R.color.correctGreen));
                     numCompletedDoors++;
                 }
             }
@@ -146,20 +146,17 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getStringExtra(EXTRA_USER_ANSWER).equalsIgnoreCase(imageRiddles[imageAnswer])) {
                 Log.d(TAG, String.format("Room 4 has been completed correctly with " + numCompletedDoors + "completed doors"));
                 if (numCompletedDoors == 3) {
-                    imageRiddleTextView.setTextColor(getResources().getColor(R.color.correctGreen, null));
+                    imageRiddleTextView.setTextColor(getColor(R.color.correctGreen));
                     numCompletedDoors++;
                 }
             }
-        }
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        boolean shouldReset = getIntent().getBooleanExtra(EXTRA_SHOULD_RESET, false);
-        if (shouldReset) {
-            numCompletedDoors = 0;
-            setRiddles();
+        } else if (requestCode == SUBMIT_INTENT_REQUEST_CODE && resultCode == RESULT_OK) {
+            boolean shouldReset = intent.getBooleanExtra(EXTRA_SHOULD_RESET, false);
+            Log.d(TAG, "CODE 8888: Puzzles should reset - " + shouldReset);
+            if (shouldReset) {
+                numCompletedDoors = 0;
+                setRiddles();
+            }
         }
     }
 
@@ -182,5 +179,9 @@ public class MainActivity extends AppCompatActivity {
         imageRiddleTextView.setText(imageRiddles[imageAnswer]);
         nameRiddleTextView.setText(nameRiddles[nameAnswer]);
         sizeRiddleTextView.setText(sizeRiddles[sizeAnswer]);
+        colorRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
+        imageRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
+        nameRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
+        sizeRiddleTextView.setTextColor(getColor(R.color.incorrectRed));
     }
 }
